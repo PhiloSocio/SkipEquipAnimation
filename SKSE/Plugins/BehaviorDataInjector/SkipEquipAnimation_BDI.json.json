@@ -1,0 +1,15 @@
+[
+    {
+        "projectPath": "actors\\Character",
+        "type": "kBool",
+        "name": "SkipEquipAnimation",
+        "value": false
+    },
+    
+    {
+        "projectPath": "actors\\Character",
+        "type": "kInt",
+        "name": "LoadBoundObjectDelay",
+        "value": 0
+    }
+]
