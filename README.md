@@ -5,12 +5,16 @@
   - You can set these animation variables with any method.
 
     For example the Papyrus scripting:
-    Game.GetPlayer().SetAnimationVariableBool("SkipEquipAnimation", true)
+    
+    - > _Game.GetPlayer().SetAnimationVariableBool("SkipEquipAnimation", true)_
+    
     [Click for more info](https://ck.uesp.net/wiki/SetAnimationVariableBool_-_ObjectReference)
 
     or using Payload Interpreter mod's features:
-    PIE.@SGVB|SkipEquipAnimation|1
-    [Click for more info]([https://ck.uesp.net/wiki/SetAnimationVariableBool_-_ObjectReference](https://github.com/D7ry/PayloadInterpreter))
+    
+    - > _PIE.@SGVB|SkipEquipAnimation|1_
+    
+    [Click for more info](https://github.com/D7ry/PayloadInterpreter)
 
     If you want equip animations to be skipped by default: Simply open the 'SKSE\Plugins\BehaviorDataInjector\SkipEquipAnimation_BDI.json' and set the 'SkipEquipAnimation' variable's value to true.
 
