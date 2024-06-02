@@ -1,3 +1,18 @@
+# Skip Equip Animation
+  - Adds two animation variables using the BehaviorDataInjector.
+  - The 'SkipEquipAnimation' bool variable controls the skipping process.
+  - The 'LoadBoundObjectDelay' integer variable controls the delay (milliseconds) of loading bound object. 0 means twice the current delta time of the game.
+  - You can set these animation variables with any method.
+
+    For example the Papyrus scripting:
+    Game.GetPlayer().SetAnimationVariableBool("SkipEquipAnimation", true)
+    [Click for more info](https://ck.uesp.net/wiki/SetAnimationVariableBool_-_ObjectReference)
+
+    or using Payload Interpreter mod's features:
+    PIE.@SGVB|SkipEquipAnimation|1
+    [Click for more info]([https://ck.uesp.net/wiki/SetAnimationVariableBool_-_ObjectReference](https://github.com/D7ry/PayloadInterpreter))
+
+    If you want equip animations to be skipped by default: Simply open the 'SKSE\Plugins\BehaviorDataInjector\SkipEquipAnimation_BDI.json' and set the 'SkipEquipAnimation' variable's value to true.
 
 # CommonLibSSE NG
 
