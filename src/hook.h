@@ -1,6 +1,6 @@
 #pragma once
 
-static float* g_deltaTimeRealTime = (float*)RELOCATION_ID(523661, 410200).address();    //  const
+using EventChecker = RE::BSEventNotifyControl;
 
 class EquipHook
 {
@@ -21,4 +21,6 @@ private:
 
     static inline REL::Relocation<decltype(OnEquipItemPC)>  _OnEquipItemPC;
 //    static inline REL::Relocation<decltype(OnEquipItemNPC)> _OnEquipItemNPC;
+
+    static inline bool _skipAnim;
 };
