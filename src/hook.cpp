@@ -46,13 +46,13 @@ bool EquipHook::SkipAnim(RE::PlayerCharacter* a_this, bool a_playAnim)
         auto rHandObj = a_this->GetEquippedObject(false);
         auto lHandObj = a_this->GetEquippedObject(true);
 
-        if (CheckIsValidBoundObject(lHandObj) || CheckIsValidBoundObject(rHandObj)) {
+        if (!(lHandObj && rHandObj) || CheckIsValidBoundObject(lHandObj) || CheckIsValidBoundObject(rHandObj)) {
             int delay = 300;
             bool skip3D = false;
             a_this->GetGraphVariableBool("SkipEquipAnimation", _skipAnim);
             a_this->GetGraphVariableInt("LoadBoundObjectDelay", delay);
             a_this->GetGraphVariableBool("Skip3DLoading", skip3D);
-            if (delay < (int)(*g_deltaTimeRealTime)) delay = (int)(*g_deltaTimeRealTime);   // the loading process will start next frame.
+            if (delay < (int)(*g_deltaTimeRealTime * 1000.f)) delay = (int)(*g_deltaTimeRealTime * 1000.f);   // the loading process will start next frame.
             if (!skip3D && _skipAnim) {
                 std::jthread delayedEquipThread([=]() {
                         if (_skipAnim) {

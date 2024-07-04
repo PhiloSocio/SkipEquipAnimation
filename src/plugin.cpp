@@ -38,7 +38,7 @@ SKSEPluginLoad(const SKSE::LoadInterface *skse) {
 }
 
 SKSEPluginInfo(
-    .Version = REL::Version{ 1, 0, 3, 0 },
+    .Version = REL::Version{ 1, 0, 4, 0 },
     .Name = "SkipEquipAnimation"sv,
     .Author = "AnArchos"sv,
     .SupportEmail = "patreon.com/AnArchos"sv,
