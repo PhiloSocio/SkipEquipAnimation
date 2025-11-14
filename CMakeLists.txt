@@ -3,15 +3,11 @@
 cmake_minimum_required(VERSION 3.21)
 
 # Set your project name. This will be the name of your SKSE .dll file.
-<<<<<<< HEAD
 project(SkipEquipAnimation VERSION 1.0.4 LANGUAGES CXX)
 
 set(ADD_COMMONLIBSSE_PLUGIN_AUTHOR "AnArchos" CACHE STRING "Plugin author")
 set(ADD_COMMONLIBSSE_PLUGIN_EMAIL "patreon.com/AnArchos" CACHE STRING "Plugin email")
 set(commonlibSSE_min_skse_version "2.0.0.2" CACHE STRING "Minimum SKSE version")
-=======
-project(SkipEquipAnimation VERSION 1.0.3 LANGUAGES CXX)
->>>>>>> 2de7a0e96de1cb822a1946aa1bf94b443dc7c510
 
 #
 
