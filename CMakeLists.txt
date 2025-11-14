@@ -3,7 +3,11 @@
 cmake_minimum_required(VERSION 3.21)
 
 # Set your project name. This will be the name of your SKSE .dll file.
-project(SkipEquipAnimation VERSION 1.0.1 LANGUAGES CXX)
+project(SkipEquipAnimation VERSION 1.0.4 LANGUAGES CXX)
+
+set(ADD_COMMONLIBSSE_PLUGIN_AUTHOR "AnArchos" CACHE STRING "Plugin author")
+set(ADD_COMMONLIBSSE_PLUGIN_EMAIL "patreon.com/AnArchos" CACHE STRING "Plugin email")
+set(commonlibSSE_min_skse_version "2.0.0.2" CACHE STRING "Minimum SKSE version")
 
 #
 
@@ -67,7 +71,7 @@ if(DEFINED OUTPUT_FOLDER)
     )
 
     # If you perform a "Debug" build, also copy .pdb file (for debug symbols)
-    if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
         add_custom_command(
             TARGET "${PROJECT_NAME}"
             POST_BUILD

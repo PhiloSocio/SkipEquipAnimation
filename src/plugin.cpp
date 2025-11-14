@@ -9,6 +9,7 @@ void MessageHandler(SKSE::MessagingInterface::Message* a_msg)
         EquipHook::Hook();
         break;
     case SKSE::MessagingInterface::kPostLoad:
+        break;
     case SKSE::MessagingInterface::kPreLoadGame:
     case SKSE::MessagingInterface::kPostLoadGame:
     case SKSE::MessagingInterface::kNewGame:
@@ -35,13 +36,3 @@ SKSEPluginLoad(const SKSE::LoadInterface *skse) {
 
     return true;
 }
-
-SKSEPluginInfo(
-    .Version = REL::Version{ 1, 0, 1, 0 },
-    .Name = "SkipEquipAnimation"sv,
-    .Author = "AnArchos"sv,
-    .SupportEmail = "patreon.com/AnArchos"sv,
-    .StructCompatibility = SKSE::StructCompatibility::Independent,
-    .RuntimeCompatibility = SKSE::VersionIndependence::AddressLibrary,
-    .MinimumSKSEVersion = REL::Version{ 2, 0, 0, 2 }
-)
