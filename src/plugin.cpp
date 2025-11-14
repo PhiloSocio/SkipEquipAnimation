@@ -35,4 +35,18 @@ SKSEPluginLoad(const SKSE::LoadInterface *skse) {
     spdlog::info("{} by {} has finished loading. Support for more mods! {}", plugin->GetName(), plugin->GetAuthor(), plugin->GetSupportEmail());
 
     return true;
+<<<<<<< HEAD
 }
+=======
+}
+
+SKSEPluginInfo(
+    .Version = REL::Version{ 1, 0, 4, 0 },
+    .Name = "SkipEquipAnimation"sv,
+    .Author = "AnArchos"sv,
+    .SupportEmail = "patreon.com/AnArchos"sv,
+    .StructCompatibility = SKSE::StructCompatibility::Independent,
+    .RuntimeCompatibility = SKSE::VersionIndependence::AddressLibrary,
+    .MinimumSKSEVersion = REL::Version{ 2, 0, 0, 2 }
+)
+>>>>>>> 2de7a0e96de1cb822a1946aa1bf94b443dc7c510
