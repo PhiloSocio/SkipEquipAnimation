@@ -2,9 +2,10 @@
 #include "hook.h"
 #include "event.h"
 
-void MessageHandler(SKSE::MessagingInterface::Message* a_msg)
+void MessageHandler(SKSE::MessagingInterface::Message *a_msg)
 {
-    switch (a_msg->type) {
+    switch (a_msg->type)
+    {
     case SKSE::MessagingInterface::kDataLoaded:
         EquipHook::Hook();
         break;
@@ -13,22 +14,25 @@ void MessageHandler(SKSE::MessagingInterface::Message* a_msg)
     case SKSE::MessagingInterface::kPreLoadGame:
     case SKSE::MessagingInterface::kPostLoadGame:
     case SKSE::MessagingInterface::kNewGame:
+        EquipHook::ResetState();
         if (auto animationEventTracker = AnimationEventTracker::GetSingleton(); animationEventTracker)
             animationEventTracker->Register();
         break;
     }
 }
-SKSEPluginLoad(const SKSE::LoadInterface *skse) {
+SKSEPluginLoad(const SKSE::LoadInterface *skse)
+{
 
     SetupLog();
 
-    auto* plugin  = SKSE::PluginDeclaration::GetSingleton();
+    auto *plugin = SKSE::PluginDeclaration::GetSingleton();
     spdlog::info("{} v{} is loading...", plugin->GetName(), plugin->GetVersion());
 
     SKSE::Init(skse);
 
     auto messaging = SKSE::GetMessagingInterface();
-    if (!messaging->RegisterListener("SKSE", MessageHandler)) {
+    if (!messaging->RegisterListener("SKSE", MessageHandler))
+    {
         return false;
     }
 
