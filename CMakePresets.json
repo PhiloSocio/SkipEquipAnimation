@@ -18,9 +18,8 @@
             "hidden": true,
             "cacheVariables": {
                 "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
-                "VCPKG_TARGET_TRIPLET": "x64-windows-skse",
-                "VCPKG_HOST_TRIPLET": "x64-windows-skse",
-                "VCPKG_OVERLAY_TRIPLETS": "${sourceDir}/cmake",
+                "VCPKG_TARGET_TRIPLET": "x64-windows-static-md",
+                "VCPKG_HOST_TRIPLET": "x64-windows-static-md",
                 "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL"
             }
         },
@@ -57,13 +56,6 @@
             "environment": {
                 "COMMONLIBSSE_COMPILER": "/permissive- /Zc:preprocessor /EHsc $penv{CXXFLAGS} /MP",
                 "COMMONLIBSSE_TEXT": "-DUNICODE -D_UNICODE"
-            },
-            "vendor": {
-                "microsoft.com/VisualStudioSettings/CMake/1.0": {
-                    "intelliSenseMode": "windows-msvc-x64",
-                    "enableMicrosoftCodeAnalysis": true,
-                    "enableClangTidyCodeAnalysis": true
-                }
             }
         },
         {
@@ -77,7 +69,7 @@
             ],
             "displayName": "Debug",
             "description": "Debug build for testing.",
-            "generator": "Ninja",
+            "generator": "Visual Studio 17 2022",
             "binaryDir": "${sourceDir}/build/debug-msvc",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": {
@@ -97,12 +89,12 @@
             ],
             "displayName": "Release",
             "description": "Optimized release build.",
-            "generator": "Ninja",
+            "generator": "Visual Studio 17 2022",
             "binaryDir": "${sourceDir}/build/release-msvc",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": {
                     "type": "STRING",
-                    "value": "Release"
+                    "value": "RelWithDebInfo"
                 }
             }
         }
@@ -120,7 +112,5 @@
             "configurePreset": "build-debug-msvc",
             "description": "Debug build for testing."
         }
-    ],
-    "testPresets": [
     ]
 }
