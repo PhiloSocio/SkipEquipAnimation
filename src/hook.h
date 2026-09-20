@@ -7,12 +7,12 @@ public:
     static void Hook()
     {
         REL::Relocation<std::uintptr_t> PlayerCharacterVtbl{RE::VTABLE_PlayerCharacter[0]};
-        REL::Relocation<std::uintptr_t> vtbl{RE::VTABLE_hkbClipGenerator[0]};
+        REL::Relocation<std::uintptr_t> hkbClipGeneratorVtbl{RE::VTABLE_hkbClipGenerator[0]};
 
         _OnEquipItemPC = PlayerCharacterVtbl.write_vfunc(0xB2, OnEquipItemPC);
-        _Activate = vtbl.write_vfunc(0x04, Activate_Hook);
-        _Update = vtbl.write_vfunc(0x05, Update_Hook);
-        _Deactivate = vtbl.write_vfunc(0x07, Deactivate_Hook);
+        _Activate = hkbClipGeneratorVtbl.write_vfunc(0x04, Activate_Hook);
+        _Update = hkbClipGeneratorVtbl.write_vfunc(0x05, Update_Hook);
+        _Deactivate = hkbClipGeneratorVtbl.write_vfunc(0x07, Deactivate_Hook);
     }
     static void ResetState();
 
